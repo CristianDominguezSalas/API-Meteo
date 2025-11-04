@@ -56,7 +56,7 @@ function mostrarPrevisionSemanal(previsionSemanal){
 
     previsionSemanal.forEach(dia => {
         const item = document.createElement('li');
-        item.innerHTML = `${dia.fecha}: ${dia.emoji} Max: ${dia.tempMax}º / Min: ${dia.tempMin}º (Lluvia: ${dia.probLluvia}%)`;
+        item.innerHTML = `${dia.fecha}: ${dia.emoji} | Max: ${dia.tempMax}º | Min: ${dia.tempMin}º | Lluvia: ${dia.probLluvia}%`;
 
         lista.appendChild(item);
     });

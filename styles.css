@@ -1,0 +1,122 @@
+/* styles.css */
+
+/* --- Configuración Global y Tipografía --- */
+
+:root {
+    --color-principal: #333;
+    --color-fondo: #f9f9f9;
+    --color-acento: #007bff;
+    --color-separador: #ddd;
+    --color-borde: #ccc;
+    --fuente-principal: 'Arial', sans-serif;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-principal);
+    margin: 40px;
+    padding: 0;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: var(--color-principal);
+    font-weight: 400; /* Estilo moderno tiende a usar pesos de fuente más ligeros */
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 2em;
+    border-bottom: 2px solid var(--color-acento);
+    padding-bottom: 10px;
+    display: inline-block; /* Para que la línea de abajo solo ocupe el ancho del texto */
+}
+
+/* --- Selectores y Entradas de Formulario --- */
+
+#seleccionarLocalidad {
+    padding: 10px 15px;
+    border: 1px solid var(--color-borde);
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: white;
+    appearance: none; /* Quita el estilo nativo en algunos navegadores */
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#seleccionarLocalidad:focus {
+    border-color: var(--color-acento);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+/* --- Información de Temperatura Actual --- */
+
+#localidad {
+    font-weight: bold;
+    color: var(--color-acento);
+}
+
+.temperatura-actual-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+#emojiDia {
+    font-size: 1.5em; /* Asegura que el emoji sea visible */
+}
+
+#temperatura {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+/* Ajuste para los spans que muestran el emoji y la temperatura */
+/* Como están al mismo nivel que el select en tu HTML, se añaden estilos para alinearlos */
+body > span {
+    margin-left: 15px;
+    font-size: 1.5em;
+}
+
+body > span:first-of-type { /* El primer span es el emoji */
+    margin-left: 20px;
+}
+
+
+/* --- Separador --- */
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: var(--color-separador);
+    margin: 30px 0;
+}
+
+/* --- Previsión Semanal --- */
+
+#previsionSemanal {
+    margin-top: 15px;
+}
+
+.prevision-list {
+    list-style: none; /* Elimina los puntos/viñetas */
+    padding: 0;
+}
+
+.prevision-list li {
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--color-separador);
+    font-size: 1.05em;
+}
+
+.prevision-list li:last-child {
+    border-bottom: none; /* Elimina la línea en el último elemento */
+}
