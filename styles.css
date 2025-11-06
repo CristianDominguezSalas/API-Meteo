@@ -120,3 +120,79 @@ hr {
 .prevision-lista li:last-child {
     border-bottom: none; /* Elimina la línea en el último elemento */
 }
+
+/* --- Previsión Semanal (Contenedor de Tarjetas) --- */
+
+/* * 1. Estilo para el contenedor DIV principal que envuelve toda la lista. 
+ * Necesitas un contenedor para agrupar los LI.
+ */
+#previsionSemanal {
+    margin-top: 15px;
+    padding: 0;
+}
+
+/* * 2. Aplicamos CSS Grid (la forma más limpia) al UL (lista)
+ * para que los LI se coloquen en columnas.
+ */
+#previsionSemanal ul {
+    list-style: none; /* Quitamos los puntos de lista */
+    padding: 0;
+    margin: 0;
+    
+    display: grid;
+    /* Creamos 2 columnas de igual tamaño para un buen equilibrio en pantallas normales */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px; /* Espacio entre las tarjetas */
+}
+
+/* --- Estilo de la Tarjeta (Cada LI) --- */
+
+/* * 3. Aplicamos el estilo de "Tarjeta" a cada elemento LI.
+ */
+#previsionSemanal li {
+    /* Estilo visual de tarjeta */
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08); /* Sombra suave */
+    transition: transform 0.2s, box-shadow 0.2s; /* Animación al pasar el ratón */
+    
+    /* Configuración del contenido interno (usando flexbox para alinear) */
+    display: flex;
+    flex-direction: column; /* Apila el contenido verticalmente */
+    justify-content: center;
+    align-items: flex-start;
+    
+    font-size: 14px;
+}
+
+/* Efecto hover para que parezca interactiva */
+#previsionSemanal li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* --- Mejorando la legibilidad del texto interno --- */
+
+/* Estilo para el día de la semana */
+#previsionSemanal li strong {
+    font-size: 1.1em;
+    color: #007bff; /* Resaltamos el día */
+    margin-bottom: 5px;
+}
+
+/* Separamos las métricas (Máx, Mín, Lluvia) */
+#previsionSemanal li {
+    /* Aquí necesitarás aplicar estilos a las partes específicas
+       del string generado en JS para resaltarlas */
+    line-height: 1.5; /* Espaciado entre líneas */
+}
+
+/* Media Query: Para dispositivos móviles (una columna) */
+@media (max-width: 500px) {
+    #previsionSemanal ul {
+        /* En pantallas pequeñas, volvemos a una sola columna */
+        grid-template-columns: 1fr; 
+    }
+}
