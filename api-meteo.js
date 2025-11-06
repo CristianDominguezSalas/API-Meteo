@@ -19,12 +19,12 @@ function generarURL(localidad, tipoDatos = 'hourly') {
     if(tipoDatos === "hourly"){
         return `https://api.open-meteo.com/v1/forecast?latitude=${latitud}&longitude=${longitud}&hourly=temperature_2m,precipitation_probability&timezone=auto`;
     }else if (tipoDatos === "daily"){
-        return `https://api.open-meteo.com/v1/forecast?latitude=${latitud}&longitude=${longitud}&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto&forecast_days=8`;
+        return `https://api.open-meteo.com/v1/forecast?latitude=${latitud}&longitude=${longitud}&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=auto`;
     }
 }
 
 function formatearFecha(fechaStr){
-    const opciones = { weekday: 'short', day: 'numeric', month: 'short'};
+    const opciones = { weekday: 'long' }; 
     return new Date(fechaStr).toLocaleDateString('es-ES', opciones);
 }
 
@@ -42,7 +42,7 @@ function procesarPrevisionDiaria(datos){
         });
     }
     if (previsionSemanal.length > 0){
-        previsionSemanal[0].fecha = "Hoy (" + previsionSemanal[0].fecha + ")";
+        previsionSemanal[0].fecha = "Hoy";
     }
     return previsionSemanal;
 }
@@ -52,7 +52,7 @@ function mostrarPrevisionSemanal(previsionSemanal){
     contenedor.innerHTML = "";
 
     const lista = document.createElement('ul');
-    lista.classList.add('prevision-list');
+    lista.classList.add('prevision-lista');
 
     previsionSemanal.forEach(dia => {
         const item = document.createElement('li');

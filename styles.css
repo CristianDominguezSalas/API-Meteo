@@ -106,17 +106,17 @@ hr {
     margin-top: 15px;
 }
 
-.prevision-list {
+.prevision-lista {
     list-style: none; /* Elimina los puntos/viñetas */
     padding: 0;
 }
 
-.prevision-list li {
+.prevision-lista li {
     padding: 12px 0;
     border-bottom: 1px dashed var(--color-separador);
     font-size: 1.05em;
 }
 
-.prevision-list li:last-child {
+.prevision-lista li:last-child {
     border-bottom: none; /* Elimina la línea en el último elemento */
 }
